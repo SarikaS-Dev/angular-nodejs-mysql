@@ -1,0 +1,60 @@
+<router-outlet></router-outlet>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="name" class="mat-column-name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="email" class="mat-column-email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="age" class="mat-column-age">
+      <th mat-header-cell *matHeaderCellDef> Age </th>
+      <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="gender" class="mat-column-gender">
+      <th mat-header-cell *matHeaderCellDef> Gender </th>
+      <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="department" class="mat-column-department">
+      <th mat-header-cell *matHeaderCellDef> Department
+      <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="city" class="mat-column-city">
+      <th mat-header-cell *matHeaderCellDef> City </th>
+      <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef class='mat-column-actions'> Actions </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <mat-icon aria-hidden="false" class="cursor"> <a href="#" [routerLink]="['/update-user/', element.id]"
+            class="btn btn-info">edit</a></mat-icon>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-icon aria-hidden="false" class="cursor" (click)="deleteData(element.id)"><a
+            class="btn btn-info">delete</a></mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"
+      class="position: sticky;top: 0; z-index: 100;background: white;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator class="paginator" [pageSizeOptions]="[5, 10, 20]" aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

@@ -1,0 +1,334 @@
+.searchButton2 {
+    cursor: pointer;
+    border-radius: 0.2em;
+    font-size: 1em;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    outline: none;
+    font-family: PFHandbookPro;
+    width: 100px;
+    height: 30px;
+    background: #FFFFFF;
+    border: 1px solid #C7222A;
+    color: #C7222A;
+    margin-right: 10px;
+    outline: none !important;
+}
+
+.paginator {
+    font-family: PFHandbookPro;
+    background: #002b5c;
+    ;
+    color: white;
+}
+
+label {
+    font-size: 1em;
+    font-family: PFHandbookPro;
+    font-weight: 100;
+    color: #000000;
+}
+
+.mat-column-email {
+    min-width: 180px;
+    max-width: 180px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-name {
+    min-width: 150px;
+    max-width: 150px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-gender {
+    min-width: 100px;
+    max-width: 100px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-department {
+    min-width: 120px;
+    max-width: 120px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-age {
+    min-width: 70px;
+    max-width: 70px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-ccc {
+    min-width: 150px;
+    max-width: 150px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-city {
+    min-width: 100px;
+    max-width: 100px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-emidue {
+    min-width: 100px;
+    max-width: 100px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-overdue {
+    min-width: 100px;
+    max-width: 100px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-txn_date {
+    min-width: 160px;
+    max-width: 160px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-settlement_cycleId {
+    min-width: 130px;
+    max-width: 130px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-settlement_date {
+    min-width: 150px;
+    max-width: 150px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-payment_mode {
+    min-width: 130px;
+    max-width: 130px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-primary {
+    min-width: 150px;
+    max-width: 150px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-reconciled {
+    min-width: 130px;
+    max-width: 130px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-instrument_id {
+    min-width: 135px;
+    max-width: 135px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-payment_confirmation_source {
+    min-width: 150px;
+    max-width: 150px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-refId {
+    min-width: 250px;
+    max-width: 250px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+.mat-column-txn_ref_no {
+    min-width: 200px;
+    max-width: 200px;
+    font-family: 'pfHandbookPro';
+    font-size: medium;
+}
+
+td.mat-cell {
+    font-size: 0.98em !important;
+}
+
+td {
+    font-size: 1em !important;
+    background-color: white;
+    color: #000000 !important;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.08);
+}
+
+th {
+    font-size: 1em !important;
+    font-family: PFHandbookPro !important;
+    background: #002b5c;
+    ;
+    color: white;
+    white-space: nowrap;
+    border-top: 1px solid rgb(0, 0, 0, 0.08);
+    font-weight: 200;
+}
+
+
+.gridDataRow {
+    font-size: 0.98em;
+    font-family: 'PFHandbookPro';
+    color: #000000;
+    height: 1.67em;
+}
+
+.payment-content {
+    margin: 1.11em;
+    padding: 0.11em;
+    border-radius: 0.1em;
+    border-color: #ccc;
+    margin-top: 0px;
+}
+
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.overlay {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.286);
+    z-index: 10;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+
+
+
+
+.dark {
+    background-color: lightgrey;
+    border: 1px;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+    min-width: 90%;
+    border-collapse: collapse;
+}
+
+mat-header-cell {
+    background: #002b5c;
+    ;
+    font-size: 1em;
+}
+
+mat-cell {
+    font-size: 0.98em;
+}
+
+table {
+    width: 100%;
+    table-layout: auto;
+    font-family: 'pfHandbookPro';
+}
+
+
+.t1 {
+    width: 75%;
+    table-layout: auto;
+    font-family: 'pfHandbookPro';
+}
+
+.table-container {
+    max-height: calc(100vh - 155px);
+    overflow-y: scroll;
+}
+
+table.mat-table {
+    border-spacing: 0;
+    box-shadow: none;
+    margin-top: 1.0em !important;
+    width: 100%;
+    font-family: PFHandbookPro;
+}
+
+td {
+    padding-right: 4px !important;
+}
+
+.arrow-down {
+    width: 8px;
+    height: 8px;
+    background: #333333;
+}
+
+.example-table-container {
+    position: relative;
+    height: 400px;
+    overflow: auto;
+}
+
+.gridHeader {
+    font-size: 1.1em !important;
+    font-family: PFHandbookPro !important;
+    color: #000000 !important;
+    /* font-weight: bold; */
+    white-space: nowrap;
+}
+
+
+.gridDataRow {
+    font-size: 0.98em;
+    font-family: PFHandbookPro;
+    color: #000000;
+    /* height: 1.67em; */
+}
+
+.selected {
+    background-color: #ffeded;
+}
+
+.table-top {
+    padding-top: 2px;
+}
+
+.data-row:hover {
+    background-color: #fef2f2;
+}
+
+.paddingTop {
+    padding-top: 18px;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cursor {
+    cursor: pointer;
+}
