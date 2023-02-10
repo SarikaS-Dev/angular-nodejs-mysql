@@ -24,17 +24,13 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-
+// to sync the db
 db.sequelize.sync();
 
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome!!!" });
 });
-
-// db.sequelize.sync({ force: true }).then(() => {
-//     console.log("Drop and re-sync db.");
-//   });
 
 require("./app/routes/user.routes")(app);
 

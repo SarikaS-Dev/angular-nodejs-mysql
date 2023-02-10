@@ -2,9 +2,9 @@ const db = require("../models");
 const User = db.user;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Tutorial
+// Create and Save a new user
 exports.create = (req, res) => {
-    
+
     //create user
     const user = {
         name: req.body.name,
@@ -26,7 +26,7 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all Tutorials from the database.
+// Retrieve all user from the database.
 exports.findAll = (req, res) => {
     const name = req.query.name;
     var condition = name ? {name: { [Op.like]: `%${name}`}} : null;
@@ -41,7 +41,7 @@ exports.findAll = (req, res) => {
     }); 
 };
 
-// Find a single Tutorial with an id
+// Find a single user with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
     
