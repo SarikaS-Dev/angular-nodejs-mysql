@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { Users } from 'src/app/shared/users';
 @Component({
@@ -17,10 +18,10 @@ export class NewUserComponent implements OnInit {
   gender = new FormControl("", Validators.required);
   department = new FormControl("", Validators.required);
   city = new FormControl("", Validators.required);
-
+  userdata : any;
   @Input() User: Users;
 
-  constructor(private apiService: UserServiceService, private fb: FormBuilder, private router: Router) { }
+  constructor(private apiService: UserServiceService, private fb: FormBuilder, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
@@ -36,19 +37,44 @@ export class NewUserComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.userForm.controls; }
 
+  /**
+   * Marks the form group as touched.
+   */
+  private markFormGroupTouched() {
+    (<any>Object).values(this.userForm.controls).forEach(control => {
+      control.markAsTouched();
+    });
+  }
+
   // to reset th form values
   ResetForm() {
     this.userForm.reset();
   }
 
   // to submit the form values in database using the service
-  submitData(data) {
+  submitData() {
+    this.spinner.show();
+    if (this.userForm.invalid) {
+      this.markFormGroupTouched();
+      return;
+    }
     console.log(this.userForm.value);
-    this.apiService.create(this.userForm.value).subscribe(data => {
-      alert("User Added Successfully!");
-      console.log(data);
-      this.router.navigate(['/home']);
-    });
+    this.apiService.create(this.userForm.value).subscribe({
+      next: (data) => {
+        setTimeout(() => {
+          /** spinner ends after 2 seconds */
+          this.spinner.hide();
+        }, 2000);
+        alert("User Added Successfully!");
+        console.log(data);
+        this.router.navigate(['/list-user']);
+        this.userdata = data;
+      }, error: (error) => {
+        alert("Failed to Add New User!");
+        console.log(error);
+      }
+    }
+    );
     this.ResetForm();
   }
 }

@@ -2,6 +2,7 @@ import { error } from '@angular/compiler/src/util';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { Users } from 'src/app/shared/users';
 
@@ -18,22 +19,22 @@ export class EditUserComponent implements OnInit {
   public user: Users;
 
   constructor(private apiService: UserServiceService, private fb: FormBuilder,
-    private route: ActivatedRoute, private router: Router) {
+    private route: ActivatedRoute, private router: Router, private spinner: NgxSpinnerService) {
 
   }
 
   ngOnInit(): void {
-    
+
     this.id = this.route.snapshot.params['id'];
-    this.apiService.get(this.id).subscribe((data: Users)=>{
-      this.userForm .setValue({
-            name: data['name'],
-            email: data['email'],
-            age: data['age'],
-            gender: data['gender'],
-            department: data['department'],
-            city: data['city']
-          });
+    this.apiService.get(this.id).subscribe((data: Users) => {
+      this.userForm.setValue({
+        name: data['name'],
+        email: data['email'],
+        age: data['age'],
+        gender: data['gender'],
+        department: data['department'],
+        city: data['city']
+      });
       this.user = data;
       console.log(this.user);
     });
@@ -52,33 +53,39 @@ export class EditUserComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.userForm.controls; }
 
-  private markFormGroupTouched(formGroup: FormGroup) {
-    (<any>Object).values(formGroup.controls).forEach(control => {
-      control.markAsTouched();
-
-      if (control.controls) {
-        this.markFormGroupTouched(control);
-      }
-    });
-  }
-
   ResetForm() {
     this.userForm.reset();
   }
 
-  onSubmit(){
+  // submit the updated form 
+  onSubmit() {
+    this.spinner.show();
+    if (!this.userForm.valid) {
+      alert('Please fill all the required fields!');
+    } else {
+      console.log(this.userForm.value);
+      this.apiService.update(this.id, this.userForm.value)
+        .subscribe({
+          next:
+            (res: any) => {
+              setTimeout(() => {
+                /** spinner ends after 2 seconds */
+                this.spinner.hide();
+              }, 2000);
+              console.log(res);
+              alert("User Updated Successfully!");
+              this.router.navigate(['/list-user']);
+            }, error: (error) => {
+              alert("Failed to Update User!");
+              console.log(error);
+            }
+        });
+    }
+  }
 
-    console.log(this.userForm.value);
-    this.apiService.update(this.id, this.userForm.value)
-    .subscribe(
-      (res:any) => {
-        alert("User Updated Successfully!");
-        console.log(this.userForm.value);
-        this.router.navigate(['/home']);
-      }, error => {
-        alert("Failed to Update User!");
-        console.log(error);
-      });
+  // don't make any changes and route back to list user 
+  onCancel() {
+    this.router.navigate(['/list-user']);
   }
 }
 

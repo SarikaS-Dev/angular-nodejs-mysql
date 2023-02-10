@@ -20,7 +20,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
-
+import { MatSortModule } from '@angular/material/sort'
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,9 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSortModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
