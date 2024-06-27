@@ -67,7 +67,7 @@ export class NewUserComponent implements OnInit {
         }, 2000);
         alert("User Added Successfully!");
         console.log(data);
-        this.router.navigate(['/list-user']);
+        this.router.navigate(['/new-user']);
         this.userdata = data;
       }, error: (error) => {
         alert("Failed to Add New User!");
